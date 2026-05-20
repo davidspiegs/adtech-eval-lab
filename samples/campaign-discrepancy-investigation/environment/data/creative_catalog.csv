@@ -1,0 +1,11 @@
+creative_id,creative_name,format,dimensions,landing_page,approval_status
+CR-001,MegaBrand_Spring_Video_30s,video,640x480,https://megabrandauto.com/megabrand-spring-video-30s,approved
+CR-002,MegaBrand_SUV_Launch_Static,display,728x90,https://megabrandauto.com/megabrand-suv-launch-static,approved
+CR-003,MegaBrand_EV_Range_Rich,rich_media,300x250,https://megabrandauto.com/megabrand-ev-range-rich,approved
+CR-004,MegaBrand_Sedan_Banner,display,160x600,https://megabrandauto.com/megabrand-sedan-banner,approved
+CR-005,MegaBrand_Truck_Native,native,native,https://megabrandauto.com/megabrand-truck-native,approved
+CR-006,MegaBrand_Summer_Sale_Static,display,300x600,https://megabrandauto.com/megabrand-summer-sale-static,approved
+CR-007,MegaBrand_Compact_Banner,display,468x60,https://megabrandauto.com/megabrand-compact-banner,approved
+CR-008,MegaBrand_Crossover_Billboard,display,970x250,https://megabrandauto.com/megabrand-crossover-billboard,approved
+CR-009,MegaBrand_EV_Interstitial,rich_media,interstitial,https://megabrandauto.com/megabrand-ev-interstitial,approved
+CR-010,MegaBrand_Sticky_Mobile,display,320x50,https://megabrandauto.com/megabrand-sticky-mobile,approved

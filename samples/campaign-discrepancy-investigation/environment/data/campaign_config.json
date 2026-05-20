@@ -1,0 +1,42 @@
+{
+  "campaign_id": "CAMP-MB-2026Q2",
+  "deal_id": "DEAL-MB-2026Q2",
+  "advertiser": "MegaBrand Auto",
+  "agency": "Omnicom Media Group",
+  "campaign_name": "MegaBrand Auto Spring 2026",
+  "flight_start": "2026-04-01",
+  "flight_end": "2026-04-30",
+  "contracted_impressions": 5000000,
+  "cpm_usd": 12.5,
+  "total_budget_usd": 62500.0,
+  "frequency_cap": {
+    "impressions": 3,
+    "period": "24h",
+    "scope": "user"
+  },
+  "targeting": {
+    "geos": [
+      "US",
+      "CA",
+      "UK"
+    ],
+    "devices": [
+      "desktop",
+      "mobile",
+      "tablet"
+    ]
+  },
+  "verification_vendor": "Moat",
+  "verification_settings": {
+    "count_method": "viewable_completions",
+    "timezone": "UTC",
+    "ivt_filtering": "givt_and_sivt",
+    "test_traffic_filtering": true
+  },
+  "ad_server_settings": {
+    "count_method": "ad_request_served",
+    "timezone": "US/Eastern",
+    "ivt_filtering": "none",
+    "note": "Raw served count \u2014 no deductions applied"
+  }
+}

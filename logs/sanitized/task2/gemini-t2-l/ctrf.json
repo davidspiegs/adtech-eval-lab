@@ -1,0 +1,158 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 14,
+            "passed": 10,
+            "failed": 4,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1778446350.8525581,
+            "stop": 1778446351.3251243
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::TestStructure::test_workbook_sheets",
+                "status": "passed",
+                "duration": 0.008239416000037636,
+                "start": 1778446351.1777663,
+                "stop": 1778446351.1866415,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_total_gap",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.027515875000005963,
+                "start": 1778446351.1871915,
+                "stop": 1778446351.2395551,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "self = <test_outputs.TestImpressionRecon object at 0xffff7101b4d0>\n\n    def test_total_gap(self):\n        \"\"\"Total impression gap is within 10% of ground truth.\"\"\"\n        rows = self._rows()\n        g = gt()\n        totals = [r for r in rows if str(_g(r, \"category\", \"\")).lower().strip()\n                  in {\"total\", \"grand_total\", \"overall\", \"sum\", \"total_gap\"}]\n        assert len(totals) >= 1, \"No total row found in Impression_Reconciliation\"\n        reported_gap = float(_g(totals[0], \"gap\", 0) or 0)\n        tol = g[\"total_gap\"] * 0.10\n>       assert abs(reported_gap - g[\"total_gap\"]) < tol, (\n            f\"Total gap: expected ~{g['total_gap']}, got {reported_gap}\"\n        )\nE       AssertionError: Total gap: expected ~2038287, got 599876.0\nE       assert 1438411.0 < 203828.7\nE        +  where 1438411.0 = abs((599876.0 - 2038287))\n\n/tests/test_outputs.py:190: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_ivt_component",
+                "status": "passed",
+                "duration": 0.004559333000031529,
+                "start": 1778446351.2399337,
+                "stop": 1778446351.2449317,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_non_viewable_component",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.004740666000003557,
+                "start": 1778446351.2452483,
+                "stop": 1778446351.2567413,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "self = <test_outputs.TestImpressionRecon object at 0xffff8949de80>\n\n    def test_non_viewable_component(self):\n        \"\"\"Non-viewable component identified and within 15% of ground truth.\"\"\"\n        rows = self._rows()\n        g = gt()\n        nv_rows = [r for r in rows\n                    if any(kw in str(_g(r, \"category\", \"\")).lower()\n                           for kw in [\"viewab\", \"non_view\", \"non-view\", \"not_view\", \"unview\"])]\n>       assert len(nv_rows) >= 1, \"No non-viewable category found\"\nE       AssertionError: No non-viewable category found\nE       assert 0 >= 1\nE        +  where 0 = len([])\n\n/tests/test_outputs.py:215: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_timezone_component",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.005351416999985759,
+                "start": 1778446351.2570798,
+                "stop": 1778446351.2688138,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "self = <test_outputs.TestImpressionRecon object at 0xffff89522600>\n\n    def test_timezone_component(self):\n        \"\"\"Timezone boundary component identified and within 25% of ground truth.\"\"\"\n        rows = self._rows()\n        g = gt()\n        tz_kw = [\"timezone\", \"time_zone\", \"time zone\", \"tz_\", \"utc\",\n                  \"boundary\", \"eastern\", \"coverage\", \"unmeasured\",\n                  \"month_end\", \"month-end\", \"reporting_period\"]\n        tz_rows = [r for r in rows\n                    if any(kw in str(_g(r, \"category\", \"\")).lower() for kw in tz_kw)\n                    or any(kw in str(_g(r, \"explanation\", \"\")).lower()\n                           for kw in [\"timezone\", \"time zone\", \"utc\", \"eastern\",\n                                      \"month.end\", \"reporting period\"])]\n>       assert len(tz_rows) >= 1, \"No timezone/coverage category found in reconciliation\"\nE       AssertionError: No timezone/coverage category found in reconciliation\nE       assert 0 >= 1\nE        +  where 0 = len([])\n\n/tests/test_outputs.py:234: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_components_sum",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.004824207999973851,
+                "start": 1778446351.2690327,
+                "stop": 1778446351.2815444,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "self = <test_outputs.TestImpressionRecon object at 0xffff710fa060>\n\n    def test_components_sum(self):\n        \"\"\"All gap components sum to within 5% of total gap.\"\"\"\n        rows = self._rows()\n        g = gt()\n        total_labels = {\"total\", \"grand_total\", \"overall\", \"sum\", \"total_gap\"}\n        non_total = [r for r in rows\n                     if str(_g(r, \"category\", \"\")).lower().strip() not in total_labels]\n        component_sum = sum(float(_g(r, \"gap\", 0) or 0) for r in non_total)\n        tol = g[\"total_gap\"] * 0.05\n>       assert abs(component_sum - g[\"total_gap\"]) < max(tol, 10000), (\n            f\"Components sum {component_sum} vs total gap {g['total_gap']}\"\n        )\nE       AssertionError: Components sum 599876.0 vs total gap 2038287\nE       assert 1438411.0 < 101914.35\nE        +  where 1438411.0 = abs((599876.0 - 2038287))\nE        +  and   101914.35 = max(101914.35, 10000)\n\n/tests/test_outputs.py:250: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::TestViewability::test_drop_date_identified",
+                "status": "passed",
+                "duration": 0.005548541999985446,
+                "start": 1778446351.2822967,
+                "stop": 1778446351.2885146,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestViewability::test_placement_identified",
+                "status": "passed",
+                "duration": 0.0050333329999716625,
+                "start": 1778446351.2888458,
+                "stop": 1778446351.2951589,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestViewability::test_daily_trend",
+                "status": "passed",
+                "duration": 0.0054390829999988455,
+                "start": 1778446351.2955387,
+                "stop": 1778446351.3017287,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDomainCompliance::test_offending_domains",
+                "status": "passed",
+                "duration": 0.004645083000013983,
+                "start": 1778446351.301967,
+                "stop": 1778446351.3068874,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDomainCompliance::test_wasted_impressions",
+                "status": "passed",
+                "duration": 0.0047540010000091115,
+                "start": 1778446351.3070765,
+                "stop": 1778446351.3122587,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDomainCompliance::test_taxonomy_cause",
+                "status": "passed",
+                "duration": 0.00388308299997675,
+                "start": 1778446351.312491,
+                "stop": 1778446351.3166337,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_summary_structure",
+                "status": "passed",
+                "duration": 0.003744666000017105,
+                "start": 1778446351.3168263,
+                "stop": 1778446351.320826,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_financial_impact",
+                "status": "passed",
+                "duration": 0.0037828749999846423,
+                "start": 1778446351.321004,
+                "stop": 1778446351.3250575,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

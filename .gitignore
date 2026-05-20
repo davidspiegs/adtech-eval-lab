@@ -1,0 +1,10 @@
+.DS_Store
+.env
+*.pyc
+__pycache__/
+.pytest_cache/
+*.zip
+jobs/
+workbench/harbor-jobs/
+logs/**/trajectory.json
+logs/**/agent-transcript.txt

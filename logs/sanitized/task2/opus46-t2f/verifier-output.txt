@@ -1,0 +1,67 @@
+=== Campaign Discrepancy Investigation Verifier ===
+Collecting pytest==8.4.1
+  Downloading pytest-8.4.1-py3-none-any.whl.metadata (7.7 kB)
+Collecting pytest-json-ctrf==0.3.5
+  Downloading pytest_json_ctrf-0.3.5-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: rapidfuzz==3.10.1 in /usr/local/lib/python3.12/dist-packages (3.10.1)
+Requirement already satisfied: openpyxl==3.1.5 in /usr/local/lib/python3.12/dist-packages (3.1.5)
+Collecting iniconfig>=1 (from pytest==8.4.1)
+  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting packaging>=20 (from pytest==8.4.1)
+  Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==8.4.1)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest==8.4.1)
+  Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: et-xmlfile in /usr/local/lib/python3.12/dist-packages (from openpyxl==3.1.5) (2.0.0)
+Downloading pytest-8.4.1-py3-none-any.whl (365 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 365.5/365.5 kB 6.0 MB/s eta 0:00:00
+Downloading pytest_json_ctrf-0.3.5-py3-none-any.whl (6.8 kB)
+Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Downloading packaging-26.2-py3-none-any.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.2/100.2 kB 10.8 MB/s eta 0:00:00
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 20.1 MB/s eta 0:00:00
+Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest, pytest-json-ctrf
+Successfully installed iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-8.4.1 pytest-json-ctrf-0.3.5
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 14 items
+
+../tests/test_outputs.py::TestStructure::test_workbook_sheets PASSED     [  7%]
+../tests/test_outputs.py::TestImpressionRecon::test_total_gap PASSED     [ 14%]
+../tests/test_outputs.py::TestImpressionRecon::test_ivt_component PASSED [ 21%]
+../tests/test_outputs.py::TestImpressionRecon::test_non_viewable_component PASSED [ 28%]
+../tests/test_outputs.py::TestImpressionRecon::test_timezone_component PASSED [ 35%]
+../tests/test_outputs.py::TestImpressionRecon::test_components_sum PASSED [ 42%]
+../tests/test_outputs.py::TestViewability::test_drop_date_identified PASSED [ 50%]
+../tests/test_outputs.py::TestViewability::test_placement_identified PASSED [ 57%]
+../tests/test_outputs.py::TestViewability::test_daily_trend PASSED       [ 64%]
+../tests/test_outputs.py::TestDomainCompliance::test_offending_domains PASSED [ 71%]
+../tests/test_outputs.py::TestDomainCompliance::test_wasted_impressions PASSED [ 78%]
+../tests/test_outputs.py::TestDomainCompliance::test_taxonomy_cause PASSED [ 85%]
+../tests/test_outputs.py::TestSummary::test_summary_structure PASSED     [ 92%]
+../tests/test_outputs.py::TestSummary::test_financial_impact PASSED      [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestStructure::test_workbook_sheets
+PASSED ../tests/test_outputs.py::TestImpressionRecon::test_total_gap
+PASSED ../tests/test_outputs.py::TestImpressionRecon::test_ivt_component
+PASSED ../tests/test_outputs.py::TestImpressionRecon::test_non_viewable_component
+PASSED ../tests/test_outputs.py::TestImpressionRecon::test_timezone_component
+PASSED ../tests/test_outputs.py::TestImpressionRecon::test_components_sum
+PASSED ../tests/test_outputs.py::TestViewability::test_drop_date_identified
+PASSED ../tests/test_outputs.py::TestViewability::test_placement_identified
+PASSED ../tests/test_outputs.py::TestViewability::test_daily_trend
+PASSED ../tests/test_outputs.py::TestDomainCompliance::test_offending_domains
+PASSED ../tests/test_outputs.py::TestDomainCompliance::test_wasted_impressions
+PASSED ../tests/test_outputs.py::TestDomainCompliance::test_taxonomy_cause
+PASSED ../tests/test_outputs.py::TestSummary::test_summary_structure
+PASSED ../tests/test_outputs.py::TestSummary::test_financial_impact
+============================== 14 passed in 0.39s ==============================
+Reward: 1.0000

@@ -1,0 +1,7 @@
+task,run,eval,score,cost_usd
+task1,gemini-t1-m,gemini-cli__gemini-3-flash-preview__adhoc,0.0,0.16952319999999999
+task1,gpt55-t1b,codex__gpt-5.5__adhoc,1.0,1.4332259999999999
+task1,opus46-t1c,claude-code__claude-opus-4-6__adhoc,1.0,3.06987475
+task2,gemini-t2-l,gemini-cli__gemini-3-flash-preview__adhoc,0.7143,0.1626626
+task2,gpt55-t2f,codex__gpt-5.5__adhoc,1.0,1.4925810000000002
+task2,opus46-t2f,claude-code__claude-opus-4-6__adhoc,1.0,2.202965

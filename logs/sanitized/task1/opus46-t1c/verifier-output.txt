@@ -1,0 +1,69 @@
+=== Programmatic Ad Revenue Reconciliation Verifier ===
+Collecting pytest==8.4.1
+  Downloading pytest-8.4.1-py3-none-any.whl.metadata (7.7 kB)
+Collecting pytest-json-ctrf==0.3.5
+  Downloading pytest_json_ctrf-0.3.5-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: rapidfuzz==3.10.1 in /usr/local/lib/python3.12/dist-packages (3.10.1)
+Requirement already satisfied: openpyxl==3.1.5 in /usr/local/lib/python3.12/dist-packages (3.1.5)
+Collecting iniconfig>=1 (from pytest==8.4.1)
+  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting packaging>=20 (from pytest==8.4.1)
+  Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==8.4.1)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest==8.4.1)
+  Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: et-xmlfile in /usr/local/lib/python3.12/dist-packages (from openpyxl==3.1.5) (2.0.0)
+Downloading pytest-8.4.1-py3-none-any.whl (365 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 365.5/365.5 kB 6.1 MB/s eta 0:00:00
+Downloading pytest_json_ctrf-0.3.5-py3-none-any.whl (6.8 kB)
+Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Downloading packaging-26.2-py3-none-any.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.2/100.2 kB 21.9 MB/s eta 0:00:00
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 16.9 MB/s eta 0:00:00
+Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest, pytest-json-ctrf
+Successfully installed iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-8.4.1 pytest-json-ctrf-0.3.5
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 15 items
+
+../tests/test_outputs.py::TestWorkbookStructure::test_workbook_structure PASSED [  6%]
+../tests/test_outputs.py::TestReconciliation::test_recon_row_count PASSED [ 13%]
+../tests/test_outputs.py::TestReconciliation::test_recon_flagged_count PASSED [ 20%]
+../tests/test_outputs.py::TestReconciliation::test_recon_held_and_zeroed PASSED [ 26%]
+../tests/test_outputs.py::TestReconciliation::test_recon_total_expected_revenue PASSED [ 33%]
+../tests/test_outputs.py::TestReconciliation::test_recon_billable_spot_check PASSED [ 40%]
+../tests/test_outputs.py::TestReconciliation::test_recon_flagged_deal_ids PASSED [ 46%]
+../tests/test_outputs.py::TestReconciliation::test_recon_valid_statuses PASSED [ 53%]
+../tests/test_outputs.py::TestPacing::test_pacing_structure PASSED       [ 60%]
+../tests/test_outputs.py::TestPacing::test_pacing_values PASSED          [ 66%]
+../tests/test_outputs.py::TestYield::test_yield_structure_and_ranking PASSED [ 73%]
+../tests/test_outputs.py::TestYield::test_yield_values PASSED            [ 80%]
+../tests/test_outputs.py::TestVarianceAndSummary::test_variance_structure PASSED [ 86%]
+../tests/test_outputs.py::TestVarianceAndSummary::test_variance_change_pct_revenue PASSED [ 93%]
+../tests/test_outputs.py::TestVarianceAndSummary::test_executive_summary PASSED [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestWorkbookStructure::test_workbook_structure
+PASSED ../tests/test_outputs.py::TestReconciliation::test_recon_row_count
+PASSED ../tests/test_outputs.py::TestReconciliation::test_recon_flagged_count
+PASSED ../tests/test_outputs.py::TestReconciliation::test_recon_held_and_zeroed
+PASSED ../tests/test_outputs.py::TestReconciliation::test_recon_total_expected_revenue
+PASSED ../tests/test_outputs.py::TestReconciliation::test_recon_billable_spot_check
+PASSED ../tests/test_outputs.py::TestReconciliation::test_recon_flagged_deal_ids
+PASSED ../tests/test_outputs.py::TestReconciliation::test_recon_valid_statuses
+PASSED ../tests/test_outputs.py::TestPacing::test_pacing_structure
+PASSED ../tests/test_outputs.py::TestPacing::test_pacing_values
+PASSED ../tests/test_outputs.py::TestYield::test_yield_structure_and_ranking
+PASSED ../tests/test_outputs.py::TestYield::test_yield_values
+PASSED ../tests/test_outputs.py::TestVarianceAndSummary::test_variance_structure
+PASSED ../tests/test_outputs.py::TestVarianceAndSummary::test_variance_change_pct_revenue
+PASSED ../tests/test_outputs.py::TestVarianceAndSummary::test_executive_summary
+============================== 15 passed in 0.51s ==============================
+ALL CHECKS PASSED

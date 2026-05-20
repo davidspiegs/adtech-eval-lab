@@ -1,0 +1,70 @@
+{
+  "version": "4.2",
+  "release_date": "2026-04-15",
+  "mappings": {
+    "autonews.com": {
+      "primary_category": "IAB2-2",
+      "category_name": "Automotive - Buying/Selling"
+    },
+    "carbuyer.co.uk": {
+      "primary_category": "IAB2-2",
+      "category_name": "Automotive - Buying/Selling"
+    },
+    "motortrend.com": {
+      "primary_category": "IAB2-2",
+      "category_name": "Automotive - Buying/Selling"
+    },
+    "edmunds.com": {
+      "primary_category": "IAB2-2",
+      "category_name": "Automotive - Buying/Selling"
+    },
+    "cnet.com": {
+      "primary_category": "IAB19-6",
+      "category_name": "Technology & Computing"
+    },
+    "techradar.com": {
+      "primary_category": "IAB19-6",
+      "category_name": "Technology & Computing"
+    },
+    "bbc.com": {
+      "primary_category": "IAB12",
+      "category_name": "News"
+    },
+    "reuters.com": {
+      "primary_category": "IAB12",
+      "category_name": "News"
+    },
+    "espn.com": {
+      "primary_category": "IAB17",
+      "category_name": "Sports"
+    },
+    "bleacherreport.com": {
+      "primary_category": "IAB17",
+      "category_name": "Sports"
+    },
+    "travelweekly.com": {
+      "primary_category": "IAB20",
+      "category_name": "Travel"
+    },
+    "gamblingreviews.com": {
+      "primary_category": "IAB9-27",
+      "category_name": "Hobbies & Interests - Gambling"
+    },
+    "pokerstrategyhub.com": {
+      "primary_category": "IAB9-27",
+      "category_name": "Hobbies & Interests - Gambling"
+    },
+    "sportsodds.net": {
+      "primary_category": "IAB9-27",
+      "category_name": "Hobbies & Interests - Gambling"
+    },
+    "diy-hobbies.com": {
+      "primary_category": "IAB9",
+      "category_name": "Hobbies & Interests"
+    },
+    "gardenworld.com": {
+      "primary_category": "IAB9",
+      "category_name": "Hobbies & Interests"
+    }
+  }
+}

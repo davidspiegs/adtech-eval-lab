@@ -1,0 +1,158 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 15,
+            "passed": 14,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1778443911.3044276,
+            "stop": 1778443911.9417977
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::TestWorkbookStructure::test_workbook_structure",
+                "status": "passed",
+                "duration": 0.01299670700001343,
+                "start": 1778443911.6678596,
+                "stop": 1778443911.681481,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_row_count",
+                "status": "passed",
+                "duration": 0.04310695799998143,
+                "start": 1778443911.6817825,
+                "stop": 1778443911.7257078,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_flagged_count",
+                "status": "passed",
+                "duration": 0.016709999999989122,
+                "start": 1778443911.726055,
+                "stop": 1778443911.7432692,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_held_and_zeroed",
+                "status": "passed",
+                "duration": 0.011835542000000032,
+                "start": 1778443911.7435608,
+                "stop": 1778443911.755868,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_total_expected_revenue",
+                "status": "passed",
+                "duration": 0.01002504199999521,
+                "start": 1778443911.7561364,
+                "stop": 1778443911.766953,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_billable_spot_check",
+                "status": "passed",
+                "duration": 0.020588040999996338,
+                "start": 1778443911.7673743,
+                "stop": 1778443911.7889547,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_flagged_deal_ids",
+                "status": "passed",
+                "duration": 0.009898625000005268,
+                "start": 1778443911.7896287,
+                "stop": 1778443911.8000317,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_valid_statuses",
+                "status": "passed",
+                "duration": 0.01059329300002787,
+                "start": 1778443911.8003604,
+                "stop": 1778443911.811348,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacing::test_pacing_structure",
+                "status": "passed",
+                "duration": 0.013542792999999165,
+                "start": 1778443911.8115907,
+                "stop": 1778443911.8256168,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacing::test_pacing_values",
+                "status": "passed",
+                "duration": 0.009695583000024044,
+                "start": 1778443911.8258462,
+                "stop": 1778443911.8359728,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestYield::test_yield_structure_and_ranking",
+                "status": "passed",
+                "duration": 0.01889725000000908,
+                "start": 1778443911.836232,
+                "stop": 1778443911.8558471,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestYield::test_yield_values",
+                "status": "passed",
+                "duration": 0.011465584000006857,
+                "start": 1778443911.8574588,
+                "stop": 1778443911.8696887,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestVarianceAndSummary::test_variance_structure",
+                "status": "passed",
+                "duration": 0.01492766700005177,
+                "start": 1778443911.8700044,
+                "stop": 1778443911.8853436,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestVarianceAndSummary::test_variance_change_pct_revenue",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.011443541999994977,
+                "start": 1778443911.8855531,
+                "stop": 1778443911.9285398,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "self = <test_outputs.TestVarianceAndSummary object at 0xffff96513440>\n\n    def test_variance_change_pct_revenue(self):\n        \"\"\"change_pct is internally consistent for total_net_revenue (percentage, not fraction).\"\"\"\n        for r in self._variance_rows():\n            m = str(_g(r, \"metric\", \"\")).lower().strip()\n            if m == \"total_net_revenue_usd\":\n                cur = float(_g(r, \"current_month\", 0) or 0)\n                pri = float(_g(r, \"prior_month\", 0) or 0)\n                if pri > 0:\n                    exp_chg = (cur - pri) / pri * 100\n                    act_chg = float(_g(r, \"change_pct\", 0) or 0)\n>                   assert abs(act_chg - exp_chg) < 1.0, (\n                        f\"Revenue change_pct: expected {exp_chg:.1f}, got {act_chg:.1f}\"\n                    )\nE                   AssertionError: Revenue change_pct: expected 106.2, got 1.1\nE                   assert 105.08885745682889 < 1.0\nE                    +  where 105.08885745682889 = abs((1.061503610675039 - 106.15036106750392))\n\n/tests/test_outputs.py:656: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::TestVarianceAndSummary::test_executive_summary",
+                "status": "passed",
+                "duration": 0.011639792999972087,
+                "start": 1778443911.928915,
+                "stop": 1778443911.9416392,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

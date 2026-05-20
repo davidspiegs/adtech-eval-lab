@@ -1,0 +1,146 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 14,
+            "passed": 14,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1778446434.1569867,
+            "stop": 1778446434.5756736
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::TestStructure::test_workbook_sheets",
+                "status": "passed",
+                "duration": 0.005421540999975605,
+                "start": 1778446434.4788365,
+                "stop": 1778446434.4847982,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_total_gap",
+                "status": "passed",
+                "duration": 0.020462667000003876,
+                "start": 1778446434.48512,
+                "stop": 1778446434.5061202,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_ivt_component",
+                "status": "passed",
+                "duration": 0.0050862909999978,
+                "start": 1778446434.5065262,
+                "stop": 1778446434.5121768,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_non_viewable_component",
+                "status": "passed",
+                "duration": 0.005095166999979028,
+                "start": 1778446434.512484,
+                "stop": 1778446434.518107,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_timezone_component",
+                "status": "passed",
+                "duration": 0.004947625999989214,
+                "start": 1778446434.5183957,
+                "stop": 1778446434.5238426,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestImpressionRecon::test_components_sum",
+                "status": "passed",
+                "duration": 0.005456999000045926,
+                "start": 1778446434.524108,
+                "stop": 1778446434.5301197,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestViewability::test_drop_date_identified",
+                "status": "passed",
+                "duration": 0.005312334000052488,
+                "start": 1778446434.5304043,
+                "stop": 1778446434.5363219,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestViewability::test_placement_identified",
+                "status": "passed",
+                "duration": 0.004639666999992187,
+                "start": 1778446434.5368145,
+                "stop": 1778446434.5417695,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestViewability::test_daily_trend",
+                "status": "passed",
+                "duration": 0.004183750000038344,
+                "start": 1778446434.5419786,
+                "stop": 1778446434.546561,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDomainCompliance::test_offending_domains",
+                "status": "passed",
+                "duration": 0.004495043000019905,
+                "start": 1778446434.5468256,
+                "stop": 1778446434.5517344,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDomainCompliance::test_wasted_impressions",
+                "status": "passed",
+                "duration": 0.004462206999960472,
+                "start": 1778446434.5519686,
+                "stop": 1778446434.5569375,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDomainCompliance::test_taxonomy_cause",
+                "status": "passed",
+                "duration": 0.005627374999960466,
+                "start": 1778446434.557227,
+                "stop": 1778446434.5633426,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_summary_structure",
+                "status": "passed",
+                "duration": 0.005131081999991238,
+                "start": 1778446434.5636277,
+                "stop": 1778446434.5694094,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_financial_impact",
+                "status": "passed",
+                "duration": 0.005363375999991149,
+                "start": 1778446434.5696802,
+                "stop": 1778446434.5755534,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

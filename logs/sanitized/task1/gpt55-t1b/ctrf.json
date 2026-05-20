@@ -1,0 +1,155 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 15,
+            "passed": 15,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1778443931.9580293,
+            "stop": 1778443932.4933617
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::TestWorkbookStructure::test_workbook_structure",
+                "status": "passed",
+                "duration": 0.011792166999953224,
+                "start": 1778443932.2853954,
+                "stop": 1778443932.2976797,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_row_count",
+                "status": "passed",
+                "duration": 0.019052626000018336,
+                "start": 1778443932.2979002,
+                "stop": 1778443932.3177223,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_flagged_count",
+                "status": "passed",
+                "duration": 0.013933250999969005,
+                "start": 1778443932.3188,
+                "stop": 1778443932.3334236,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_held_and_zeroed",
+                "status": "passed",
+                "duration": 0.011349625000036667,
+                "start": 1778443932.3339667,
+                "stop": 1778443932.34574,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_total_expected_revenue",
+                "status": "passed",
+                "duration": 0.009277917000019897,
+                "start": 1778443932.3460217,
+                "stop": 1778443932.3557193,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_billable_spot_check",
+                "status": "passed",
+                "duration": 0.014224664999971992,
+                "start": 1778443932.3559499,
+                "stop": 1778443932.3706145,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_flagged_deal_ids",
+                "status": "passed",
+                "duration": 0.010108208000019658,
+                "start": 1778443932.3708556,
+                "stop": 1778443932.3814242,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReconciliation::test_recon_valid_statuses",
+                "status": "passed",
+                "duration": 0.01566916699999865,
+                "start": 1778443932.381684,
+                "stop": 1778443932.3978853,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacing::test_pacing_structure",
+                "status": "passed",
+                "duration": 0.012236876000031316,
+                "start": 1778443932.3981664,
+                "stop": 1778443932.4108567,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacing::test_pacing_values",
+                "status": "passed",
+                "duration": 0.012837833000048704,
+                "start": 1778443932.4111447,
+                "stop": 1778443932.4244688,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestYield::test_yield_structure_and_ranking",
+                "status": "passed",
+                "duration": 0.010569790999966244,
+                "start": 1778443932.4246778,
+                "stop": 1778443932.438543,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestYield::test_yield_values",
+                "status": "passed",
+                "duration": 0.011856833999956962,
+                "start": 1778443932.4388702,
+                "stop": 1778443932.4512491,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestVarianceAndSummary::test_variance_structure",
+                "status": "passed",
+                "duration": 0.010467457999936869,
+                "start": 1778443932.4515853,
+                "stop": 1778443932.4625058,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestVarianceAndSummary::test_variance_change_pct_revenue",
+                "status": "passed",
+                "duration": 0.015264333999937207,
+                "start": 1778443932.462727,
+                "stop": 1778443932.4785097,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestVarianceAndSummary::test_executive_summary",
+                "status": "passed",
+                "duration": 0.013431833999959508,
+                "start": 1778443932.4791753,
+                "stop": 1778443932.4931924,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

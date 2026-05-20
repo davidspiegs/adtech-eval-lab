@@ -1,0 +1,150 @@
+=== Campaign Discrepancy Investigation Verifier ===
+Collecting pytest==8.4.1
+  Downloading pytest-8.4.1-py3-none-any.whl.metadata (7.7 kB)
+Collecting pytest-json-ctrf==0.3.5
+  Downloading pytest_json_ctrf-0.3.5-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: rapidfuzz==3.10.1 in /usr/local/lib/python3.12/dist-packages (3.10.1)
+Requirement already satisfied: openpyxl==3.1.5 in /usr/local/lib/python3.12/dist-packages (3.1.5)
+Collecting iniconfig>=1 (from pytest==8.4.1)
+  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting packaging>=20 (from pytest==8.4.1)
+  Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==8.4.1)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest==8.4.1)
+  Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: et-xmlfile in /usr/local/lib/python3.12/dist-packages (from openpyxl==3.1.5) (2.0.0)
+Downloading pytest-8.4.1-py3-none-any.whl (365 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 365.5/365.5 kB 6.5 MB/s eta 0:00:00
+Downloading pytest_json_ctrf-0.3.5-py3-none-any.whl (6.8 kB)
+Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Downloading packaging-26.2-py3-none-any.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.2/100.2 kB 12.5 MB/s eta 0:00:00
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 13.7 MB/s eta 0:00:00
+Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest, pytest-json-ctrf
+Successfully installed iniconfig-2.3.0 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-8.4.1 pytest-json-ctrf-0.3.5
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 14 items
+
+../tests/test_outputs.py::TestStructure::test_workbook_sheets PASSED     [  7%]
+../tests/test_outputs.py::TestImpressionRecon::test_total_gap FAILED     [ 14%]
+../tests/test_outputs.py::TestImpressionRecon::test_ivt_component PASSED [ 21%]
+../tests/test_outputs.py::TestImpressionRecon::test_non_viewable_component FAILED [ 28%]
+../tests/test_outputs.py::TestImpressionRecon::test_timezone_component FAILED [ 35%]
+../tests/test_outputs.py::TestImpressionRecon::test_components_sum FAILED [ 42%]
+../tests/test_outputs.py::TestViewability::test_drop_date_identified PASSED [ 50%]
+../tests/test_outputs.py::TestViewability::test_placement_identified PASSED [ 57%]
+../tests/test_outputs.py::TestViewability::test_daily_trend PASSED       [ 64%]
+../tests/test_outputs.py::TestDomainCompliance::test_offending_domains PASSED [ 71%]
+../tests/test_outputs.py::TestDomainCompliance::test_wasted_impressions PASSED [ 78%]
+../tests/test_outputs.py::TestDomainCompliance::test_taxonomy_cause PASSED [ 85%]
+../tests/test_outputs.py::TestSummary::test_summary_structure PASSED     [ 92%]
+../tests/test_outputs.py::TestSummary::test_financial_impact PASSED      [100%]
+
+=================================== FAILURES ===================================
+______________________ TestImpressionRecon.test_total_gap ______________________
+
+self = <test_outputs.TestImpressionRecon object at 0xffff7101b4d0>
+
+    def test_total_gap(self):
+        """Total impression gap is within 10% of ground truth."""
+        rows = self._rows()
+        g = gt()
+        totals = [r for r in rows if str(_g(r, "category", "")).lower().strip()
+                  in {"total", "grand_total", "overall", "sum", "total_gap"}]
+        assert len(totals) >= 1, "No total row found in Impression_Reconciliation"
+        reported_gap = float(_g(totals[0], "gap", 0) or 0)
+        tol = g["total_gap"] * 0.10
+>       assert abs(reported_gap - g["total_gap"]) < tol, (
+            f"Total gap: expected ~{g['total_gap']}, got {reported_gap}"
+        )
+E       AssertionError: Total gap: expected ~2038287, got 599876.0
+E       assert 1438411.0 < 203828.7
+E        +  where 1438411.0 = abs((599876.0 - 2038287))
+
+/tests/test_outputs.py:190: AssertionError
+_______________ TestImpressionRecon.test_non_viewable_component ________________
+
+self = <test_outputs.TestImpressionRecon object at 0xffff8949de80>
+
+    def test_non_viewable_component(self):
+        """Non-viewable component identified and within 15% of ground truth."""
+        rows = self._rows()
+        g = gt()
+        nv_rows = [r for r in rows
+                    if any(kw in str(_g(r, "category", "")).lower()
+                           for kw in ["viewab", "non_view", "non-view", "not_view", "unview"])]
+>       assert len(nv_rows) >= 1, "No non-viewable category found"
+E       AssertionError: No non-viewable category found
+E       assert 0 >= 1
+E        +  where 0 = len([])
+
+/tests/test_outputs.py:215: AssertionError
+_________________ TestImpressionRecon.test_timezone_component __________________
+
+self = <test_outputs.TestImpressionRecon object at 0xffff89522600>
+
+    def test_timezone_component(self):
+        """Timezone boundary component identified and within 25% of ground truth."""
+        rows = self._rows()
+        g = gt()
+        tz_kw = ["timezone", "time_zone", "time zone", "tz_", "utc",
+                  "boundary", "eastern", "coverage", "unmeasured",
+                  "month_end", "month-end", "reporting_period"]
+        tz_rows = [r for r in rows
+                    if any(kw in str(_g(r, "category", "")).lower() for kw in tz_kw)
+                    or any(kw in str(_g(r, "explanation", "")).lower()
+                           for kw in ["timezone", "time zone", "utc", "eastern",
+                                      "month.end", "reporting period"])]
+>       assert len(tz_rows) >= 1, "No timezone/coverage category found in reconciliation"
+E       AssertionError: No timezone/coverage category found in reconciliation
+E       assert 0 >= 1
+E        +  where 0 = len([])
+
+/tests/test_outputs.py:234: AssertionError
+___________________ TestImpressionRecon.test_components_sum ____________________
+
+self = <test_outputs.TestImpressionRecon object at 0xffff710fa060>
+
+    def test_components_sum(self):
+        """All gap components sum to within 5% of total gap."""
+        rows = self._rows()
+        g = gt()
+        total_labels = {"total", "grand_total", "overall", "sum", "total_gap"}
+        non_total = [r for r in rows
+                     if str(_g(r, "category", "")).lower().strip() not in total_labels]
+        component_sum = sum(float(_g(r, "gap", 0) or 0) for r in non_total)
+        tol = g["total_gap"] * 0.05
+>       assert abs(component_sum - g["total_gap"]) < max(tol, 10000), (
+            f"Components sum {component_sum} vs total gap {g['total_gap']}"
+        )
+E       AssertionError: Components sum 599876.0 vs total gap 2038287
+E       assert 1438411.0 < 101914.35
+E        +  where 1438411.0 = abs((599876.0 - 2038287))
+E        +  and   101914.35 = max(101914.35, 10000)
+
+/tests/test_outputs.py:250: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestStructure::test_workbook_sheets
+PASSED ../tests/test_outputs.py::TestImpressionRecon::test_ivt_component
+PASSED ../tests/test_outputs.py::TestViewability::test_drop_date_identified
+PASSED ../tests/test_outputs.py::TestViewability::test_placement_identified
+PASSED ../tests/test_outputs.py::TestViewability::test_daily_trend
+PASSED ../tests/test_outputs.py::TestDomainCompliance::test_offending_domains
+PASSED ../tests/test_outputs.py::TestDomainCompliance::test_wasted_impressions
+PASSED ../tests/test_outputs.py::TestDomainCompliance::test_taxonomy_cause
+PASSED ../tests/test_outputs.py::TestSummary::test_summary_structure
+PASSED ../tests/test_outputs.py::TestSummary::test_financial_impact
+FAILED ../tests/test_outputs.py::TestImpressionRecon::test_total_gap - Assert...
+FAILED ../tests/test_outputs.py::TestImpressionRecon::test_non_viewable_component
+FAILED ../tests/test_outputs.py::TestImpressionRecon::test_timezone_component
+FAILED ../tests/test_outputs.py::TestImpressionRecon::test_components_sum - A...
+========================= 4 failed, 10 passed in 0.48s =========================
+Reward: 0.7143

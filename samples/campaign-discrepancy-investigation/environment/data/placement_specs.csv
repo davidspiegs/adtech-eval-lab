@@ -1,0 +1,11 @@
+placement_id,placement_name,page_section,position,ad_size,viewability_benchmark_pct
+PL-001,Homepage_Leaderboard_728x90,homepage,above_fold,728x90,74.0
+PL-002,News_MedRect_300x250,news,above_fold,300x250,71.0
+PL-003,Sports_Video_PreRoll,sports,above_fold,video_640x480,82.0
+PL-004,Finance_Skyscraper_160x600,finance,above_fold,160x600,65.0
+PL-005,Lifestyle_Native_InFeed,lifestyle,above_fold,native,69.0
+PL-006,Auto_Sidebar_300x600,auto,above_fold,300x600,70.0
+PL-007,Tech_Banner_468x60,tech,above_fold,468x60,66.0
+PL-008,Travel_Billboard_970x250,travel,above_fold,970x250,73.0
+PL-009,Entertainment_Interstitial,entertainment,above_fold,interstitial,78.0
+PL-010,Homepage_Sticky_320x50,homepage,below_fold,320x50,18.0

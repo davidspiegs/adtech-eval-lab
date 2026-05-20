@@ -1,0 +1,9 @@
+rule_id,exclusion_type,value,reason
+EX-001,category,IAB9-27,Brand safety - gambling content
+EX-002,category,IAB25,Brand safety - non-standard content
+EX-003,category,IAB26,Brand safety - illegal content
+EX-004,domain,competitor-ford.com,Competitive separation
+EX-005,domain,competitor-toyota.com,Competitive separation
+EX-006,domain,fakenews-site.com,Quality threshold
+EX-007,domain,clickbait-central.com,Quality threshold
+EX-008,domain,lowquality-ads.com,Quality threshold
