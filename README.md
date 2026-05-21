@@ -7,10 +7,10 @@ digital media domains as Harbor-format AI evaluation tasks.
 
 I chose this domain specifically because Ad Operations ("Ad Ops") work is currently an overlooked area of knowledge work in AI research. Surprisingly, I couldn't find a single AI research paper or dataset specific to Ad Ops — there were a few advertising analytics papers, but nothing came close to the complexity of real Ad Ops work. Ad Ops work often involves analyzing multiple inconsistent, messy, complicated datasets from different sources, with specific rules to follow. [APEX and APEX-Agents benchmarks](https://www.mercor.com/apex/) have shown that even the latest frontier models still struggle with executing long-horizon, cross-application tasks in professional services.
 
-The tasks I created ask an AI agent to do the kind of messy, multi-file work that shows up
-in real ad ops: reconcile ad server and SSP billing data, parse PDFs, handle
-inconsistent naming, investigate advertiser discrepancy complaints, apply
-business rules, and produce structured Excel reports.
+The tasks I created ask an AI agent to do perform the kind of messy, multi-file tasks that show up
+in real ad ops, such as: reconciling ad server and SSP billing data, parsing PDFs, handling
+inconsistent naming, investigating advertiser discrepancy complaints, applying
+business rules, and producing structured Excel reports.
 
 This is a small, synthetic eval suite. It is not meant to be a universal
 leaderboard or a definitive benchmark for the whole industry. I built it to
