@@ -71,7 +71,6 @@ produced, but they should not be read as a broad model ranking.
 More detail is available in:
 
 - [`report/headroom-report.md`](report/headroom-report.md)
-- [`report/task-design-review.md`](report/task-design-review.md)
 - [`workbench/results/model-results-summary.md`](workbench/results/model-results-summary.md)
 
 ## How To Run
