@@ -18,6 +18,8 @@ makes a verifier fair, and where long-horizon agent workflows still break down.
 All data in this repo is synthetic. No customer, production, or platform-private
 data is included.
 
+For the detailed evaluation writeup, see the [headroom report](report/headroom-report.md).
+
 ## Why Ad Operations?
 
 Ad Operations is a good domain for agent evaluation because the work is rarely a
