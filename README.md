@@ -1,47 +1,66 @@
-# Adtech Eval Lab
+# Ad Ops in AdTech: A Harbor Eval Suite
 
-This is my first Harbor eval project.
+## Summary
 
-I built it as a passion project to learn Harbor, AI eval design, and what makes
-an eval useful for understanding agent behavior. I wanted to build something more
-realistic than a toy task: messy files, business rules, spreadsheets, ambiguity,
-and enough moving parts that a model has to actually keep track of what it is
-doing.
+This project recreates two realistic Ad Operations workflows from the adtech and
+digital media world as Harbor-format AI evaluation tasks.
 
-The domain is synthetic adtech revenue operations. That means the tasks are about
-publisher-side ad revenue reconciliation and campaign discrepancy investigation:
-workflows where an analyst has to connect CSVs, PDFs, JSON files, policy notes,
-and stakeholder requests into a clean final report.
+The tasks ask an AI agent to do the kind of messy, multi-file work that shows up
+in real ad ops: reconcile ad server and SSP billing data, parse PDFs, handle
+inconsistent naming, investigate advertiser discrepancy complaints, apply
+business rules, and produce structured Excel reports.
+
+This is a small, synthetic eval suite. It is not meant to be a universal
+leaderboard or a definitive benchmark for the whole industry. I built it to
+explore how practical AI evals are designed: what makes a task realistic, what
+makes a verifier fair, and where long-horizon agent workflows still break down.
 
 All data in this repo is synthetic. No customer, production, or platform-private
 data is included.
 
-## What This Is
+## Why Ad Operations?
 
-This repo contains two Harbor-format evaluation tasks for AI agents. Each task
-gives the agent a realistic business request, a folder of source data, and a
-required Excel output. The verifier then checks the output deterministically.
+Ad Operations is a good domain for agent evaluation because the work is rarely a
+single clean question. A real analyst often has to piece together evidence from
+ad servers, SSPs, verification vendors, rate cards, taxonomy files, campaign
+configuration, finance policies, and stakeholder emails.
 
-The goal is not to create a definitive leaderboard. The goal is to explore what
-kind of eval tasks can expose useful training signal for agentic knowledge work:
-multi-file reasoning, spreadsheet generation, PDF parsing, fuzzy matching,
-business-rule execution, and numerical consistency.
+That makes it a useful testbed for the kinds of failures that show up in
+long-horizon professional work. Benchmarks like APEX-Agents point to the same
+general problem: even strong models can struggle when a task requires many files,
+many steps, numerical precision, and a final deliverable that has to be
+internally consistent.
 
-## The Tasks
+I built this as my first Harbor eval project and as a way to learn the mechanics
+of eval design from end to end: task construction, synthetic data generation,
+oracle solutions, deterministic verifiers, and result analysis.
 
-| Task | What The Agent Has To Do | Output | Scoring |
+## What The Tasks Test
+
+These tasks are designed around practical agent skills:
+
+- Multi-file reasoning across CSV, PDF, JSON, and Markdown inputs
+- Spreadsheet and report generation
+- PDF extraction from partner billing statements
+- Fuzzy matching and entity resolution across inconsistent naming conventions
+- Numerical consistency across chained business calculations
+- Root-cause investigation under realistic operational ambiguity
+
+## Tasks
+
+| Task | Workflow | Output | Scoring |
 |---|---|---|---|
-| `programmatic-ad-revenue-reconciliation` | Reconcile ad server delivery, IVT deductions, deal rate cards, SSP billing, pacing, yield, and prior-month variance | 5-sheet Excel audit report | Binary verifier with 15 deterministic checks |
-| `campaign-discrepancy-investigation` | Investigate advertiser complaints about impression gaps, viewability collapse, and domain violations | 4-sheet Excel investigation report | Partial-credit verifier with 14 deterministic checks |
+| `programmatic-ad-revenue-reconciliation` | Monthly publisher revenue audit across ad server delivery, IVT deductions, deal rate cards, SSP billing, pacing, yield, and prior-month variance | 5-sheet Excel audit report | Binary verifier with 15 deterministic checks |
+| `campaign-discrepancy-investigation` | Advertiser complaint investigation covering impression gaps, viewability collapse, and domain violations | 4-sheet Excel investigation report | Partial-credit verifier with 14 deterministic checks |
 
-The first task is closer to a monthly finance/ad ops close workflow. The second
-task is closer to a forensic investigation after an advertiser escalates a
-campaign problem.
+The first task is closer to a month-end revenue and finance close workflow. The
+second task is closer to a forensic ad ops investigation after an advertiser
+escalates a campaign issue.
 
 ## Selected Results
 
-These are a few selected runs from my testing. They are included to show the
-kind of signal the tasks produced, not as a universal model ranking.
+These are selected runs from my testing. They show the kind of signal the tasks
+produced, but they should not be read as a broad model ranking.
 
 | Model | Revenue Reconciliation | Campaign Investigation |
 |---|---:|---:|
@@ -54,32 +73,6 @@ More detail is available in:
 - [`report/headroom-report.md`](report/headroom-report.md)
 - [`report/task-design-review.md`](report/task-design-review.md)
 - [`workbench/results/model-results-summary.md`](workbench/results/model-results-summary.md)
-
-## Repository Layout
-
-```text
-samples/            The two Harbor-format eval tasks
-report/             Main write-up and task design review
-workbench/research/ Research notes from the build process
-workbench/results/  Curated result summaries
-logs/sanitized/     Public-safe verifier outputs and compact run metadata
-scripts/            Archived data-generation notes and utilities
-```
-
-Each task follows the same basic Harbor layout:
-
-```text
-instruction.md      The prompt the agent receives
-task.toml           Harbor task metadata and resource settings
-environment/        Dockerfile, static task data, and agent skills
-solution/           Oracle solution used for validation
-tests/              Deterministic verifier
-```
-
-For manual review, all task data is visible under each task's
-`environment/data/` directory. The revenue reconciliation task includes the Index
-Exchange billing statement as a static PDF, rather than generating it at build
-time.
 
 ## How To Run
 
@@ -94,7 +87,7 @@ Prerequisites:
 
 - Harbor installed
 - Docker running
-- Agent credentials configured if you want to run non-oracle agents
+- Agent credentials configured if you want to run model-backed agents
 
 Run the oracle solution for the revenue reconciliation task:
 
@@ -136,12 +129,39 @@ harbor run \
 Exact agent and model setup depends on your local Harbor installation and the
 credentials you have configured.
 
-## Notes On The Public Archive
+## Repository Layout
 
-The raw agent trajectories and transcripts are not included here. They can be
-large, noisy, and full of local execution details. Instead, this repo keeps
-sanitized verifier outputs and compact result metadata under `logs/sanitized/`.
+```text
+samples/            Harbor-format eval tasks
+report/             Main write-up and task design review
+workbench/research/ Research notes from the build process
+workbench/results/  Curated result summaries
+logs/sanitized/     Public-safe verifier outputs and compact run metadata
+scripts/            Archived data-generation notes and utilities
+```
 
-The reports and workbench notes are included because they show the design
-thinking behind the tasks: why I chose the domain, what kinds of failures I was
-looking for, and where the tasks are strong or still imperfect.
+Each task follows the same basic Harbor layout:
+
+```text
+instruction.md      Prompt received by the agent
+task.toml           Harbor task metadata and resource settings
+environment/        Dockerfile, static task data, and agent skills
+solution/           Oracle solution used for validation
+tests/              Deterministic verifier
+```
+
+For manual review, all task data is visible under each task's
+`environment/data/` directory. The revenue reconciliation task includes the Index
+Exchange billing statement as a static PDF, rather than generating it at build
+time.
+
+## Notes
+
+- The datasets are synthetic and intentionally compact enough to inspect.
+- The public archive includes sanitized verifier outputs and compact run
+  metadata under `logs/sanitized/`.
+- Raw agent trajectories and transcripts are excluded because they are noisy and
+  contain local execution details.
+- The reports and workbench notes are included to show the design thinking
+  behind the tasks, including what worked, what failed, and where the evals could
+  be improved.
