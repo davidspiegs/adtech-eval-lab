@@ -2,10 +2,12 @@
 
 ## Summary
 
-This project recreates two realistic Ad Operations workflows from the adtech and
-digital media world as Harbor-format AI evaluation tasks.
+This project recreates two realistic Ad Operations workflows from the AdTech and
+digital media domains as Harbor-format AI evaluation tasks.
 
-The tasks ask an AI agent to do the kind of messy, multi-file work that shows up
+I chose this domain specifically because Ad Operations ("Ad Ops") work is currently an overlooked area of knowledge work in AI research. Surprisingly, I couldn't find a single AI research paper or dataset specific to Ad Ops — there were a few advertising analytics papers, but nothing came close to the complexity of real Ad Ops work. Ad Ops work often involves analyzing multiple inconsistent, messy, complicated datasets from different sources, with specific rules to follow. [APEX and APEX-Agents benchmarks](https://www.mercor.com/apex/) have shown that even the latest frontier models still struggle with executing long-horizon, cross-application tasks in professional services.
+
+The tasks I created ask an AI agent to do the kind of messy, multi-file work that shows up
 in real ad ops: reconcile ad server and SSP billing data, parse PDFs, handle
 inconsistent naming, investigate advertiser discrepancy complaints, apply
 business rules, and produce structured Excel reports.
@@ -15,8 +17,9 @@ leaderboard or a definitive benchmark for the whole industry. I built it to
 explore how practical AI evals are designed: what makes a task realistic, what
 makes a verifier fair, and where long-horizon agent workflows still break down.
 
-All data in this repo is synthetic. No customer, production, or platform-private
-data is included.
+The datasets in this repo are synthetic, but they are designed based off of personal experience working at Supply-Side Platforms (SSPs) and digital publishers. No customer, production, or platform-private data are included.
+
+This evaluation involved a limited number of trials, primarily due to budget constraints. The model focused on here was Gemini 3 Flash due to it's low cost, and because benchmarks have shown that it performs well at instruction following, but has a high hallucination rate. I ran limited trials with GPT 5.5 and Opus 4.6 to prove that the tasks were achievable by LLMs — GPT 5.5 passed every trial, but even Opus 4.6 failed on the campaign discrepancy investigation task.
 
 For the detailed evaluation writeup, see the [headroom report](report/headroom-report.md).
 
