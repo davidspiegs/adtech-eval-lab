@@ -62,16 +62,16 @@ The first task is closer to a month-end revenue and finance close workflow. The
 second task is closer to a forensic ad ops investigation after an advertiser
 escalates a campaign issue.
 
-## Selected Results
+## Result Summary
 
-These are selected runs from my testing. They show the kind of signal the tasks
-produced, but they should not be read as a broad model ranking.
+These are limited trial results from my testing. They show the kind of signal
+the tasks produced, but they should not be read as a broad model ranking.
 
-| Model | Revenue Reconciliation | Campaign Investigation |
-|---|---:|---:|
-| GPT-5.5 | 1.000 | 1.000 |
-| Claude Opus 4.6 | 1.000 | 1.000 |
-| Gemini 3 Flash Preview | 0.000 | 0.7143 |
+| Model | Revenue Reconciliation | Campaign Investigation | Notes |
+|---|---:|---:|---|
+| GPT-5.5 | 1/1 pass | 1.000 avg over 6 trials | Passed every Task 2 trial reviewed |
+| Claude Opus 4.6 | 1/1 pass | 0.929 avg over 6 trials | Intermittently failed the non-viewable reconciliation step |
+| Gemini 3 Flash Preview | 0/5 pass rate | 0.843 avg over 10 trials | Repeated failures on metric selection and timezone attribution |
 
 More detail is available in:
 
